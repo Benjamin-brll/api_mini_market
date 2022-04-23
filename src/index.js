@@ -1,8 +1,14 @@
 const express = require('express')
 const app = express()
 
-app.set('PORT', 3000)
+const { config } = require('../config/index')
 
-app.listen(app.get('PORT'), () => {
-    console.log(`app running on port http://localhost:${app.get('PORT')}/`)
+const productsApi = require('../routes/products')
+
+app.use(express.json())
+
+productsApi(app)
+
+app.listen(config.port, () => {
+    console.log(`app running on port http://localhost:${config.port}/`)
 })
