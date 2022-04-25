@@ -7,6 +7,7 @@ const productsApi = require("../routes/products");
 const usersApi = require("../routes/users");
 const ventasApi = require("../routes/ventas");
 const turnosApi = require("../routes/turnos");
+const repartidoresApi = require("../routes/repartidores");
 
 app.use(express.json());
 
@@ -14,6 +15,7 @@ productsApi(app);
 usersApi(app);
 ventasApi(app);
 turnosApi(app);
+repartidoresApi(app);
 
 app.listen(config.port, () => {
   console.log(`app running on port http://localhost:${config.port}/`);
