@@ -1,15 +1,12 @@
-const { models } = require('../libs/mssql')
+const { models } = require("../libs/mssql");
 
 class ProductService {
+  constructor() {}
 
-    constructor(){
-
-    }
-
-    async findAll(){
-        const products = await models.Producto.findAll()
-        return products
-    }
+  async findAll() {
+    const products = await models.Product.findAll();
+    return products;
+  }
 }
 
-module.exports = ProductService
+module.exports = ProductService;
