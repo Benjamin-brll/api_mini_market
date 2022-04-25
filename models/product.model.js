@@ -11,7 +11,7 @@ const ProductSchema = {
         type: DataTypes.INTEGER
     },
     nombre: {
-        allowNull: true,
+        allowNull: false,
         type: "varchar(30)",
     },
     descripcion: {
@@ -19,7 +19,7 @@ const ProductSchema = {
         type: "text",
     },
     precio: {
-        allowNull: true,
+        allowNull: false,
         type: DataTypes.DECIMAL(4,2)
     },
     stock: {
