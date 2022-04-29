@@ -28,4 +28,4 @@ const metodoPagoApi = (app) => {
     });
 };
 
-module.exports = metodoPagoApi
+module.exports = metodoPagoApi;
