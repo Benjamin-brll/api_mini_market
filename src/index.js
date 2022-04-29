@@ -10,7 +10,7 @@ const turnosApi = require("../routes/turnos");
 const repartidoresApi = require("../routes/repartidores");
 const categoriasApi = require("../routes/categorias");
 const metodoPagoApi = require("../routes/metodoPago");
-
+const marcasApi = require("../routes/marcas");
 
 app.use(express.json());
 
@@ -21,6 +21,7 @@ turnosApi(app);
 repartidoresApi(app);
 categoriasApi(app);
 metodoPagoApi(app);
+marcasApi(app);
 
 app.listen(config.port, () => {
   console.log(`app running on port http://localhost:${config.port}/`);

@@ -1,12 +1,13 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes} = require('sequelize')
 
-const METODOPAGO_TABLE = "metodoPago";
+const METODOPAGO_TABLE = 'metodoPago';
 
-const metodoPago = {
+const metodoPagoSchema = {
     idMetodoPago: {
         allowNull: false,
         primaryKey: true,
         field: "id_metodoPago",
+        type: "varchar(12)",
     },
 
     nombre: {
@@ -24,12 +25,12 @@ class metodoPago extends Model {
 
     static associate() {}
     
-    stattic config(sequelize) {
+    static config(sequelize) {
         return {
             sequelize,
             tableName: METODOPAGO_TABLE,
             modelName: "metodoPago",
-            timestamps: false,
+            timestamps: false
         }
     }
 }
