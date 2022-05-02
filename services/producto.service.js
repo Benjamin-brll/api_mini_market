@@ -5,7 +5,7 @@ class ProductoService {
 
   async findAll() {
     const products = await models.Producto.findAll({
-      include: [models.Marca, models.Categoria]
+      include: [models.Categoria, models.Marca]
     });
     return products;
   }

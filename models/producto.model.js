@@ -45,12 +45,12 @@ const ProductoSchema = {
 }
 
 class Producto extends Model{
-    
+
     static associate(models){
-        this.hasMany(models.Marca,{
+        this.belongsTo(models.Marca,{
             foreignKey: 'idMarca'
         })
-        this.hasMany(models.Categoria,{
+        this.belongsTo(models.Categoria,{
             foreignKey: 'idCategoria'
         })
     }
