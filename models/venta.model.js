@@ -7,6 +7,7 @@ const VentaSchema = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        field: 'id_venta',
         type: DataTypes.INTEGER
     },
     montoTotal: {
@@ -37,8 +38,10 @@ const VentaSchema = {
 
 class Venta extends Model {
 
-    static associate(){
-
+    static associate(models){
+        this.hasMany(models.DetalleVenta,{
+            foreignKey: 'idVenta'
+        })
     }
 
     static config(sequelize){

@@ -6,16 +6,13 @@ const CategoriaSchema = {
     idCategoria: {
         primaryKey: true,
         allowNull: false,
+        autoIncrement: true,
         field: "id_categoria",
         type: DataTypes.INTEGER,
     },
     nombre: {
         allowNull: false,
         type: "varchar(30)",
-    },
-    descripcion: {
-        allowNull: true,
-        type: "text",
     }
 }
 

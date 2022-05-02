@@ -7,15 +7,12 @@ const MarcaSchema = {
         primaryKey: true,
         allowNull: false,
         field: "id_marca",
+        autoIncrement: true,
         type: DataTypes.INTEGER,
     },
     nombre: {
         allowNull: false,
         type: "varchar(20)",
-    },
-    descripcion: {
-        allowNull: true,
-        type: "text",
     }
 }
 

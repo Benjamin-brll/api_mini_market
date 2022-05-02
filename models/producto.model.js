@@ -13,7 +13,7 @@ const ProductoSchema = {
     },
     nombre: {
         allowNull: false,
-        type: "varchar(30)",
+        type: "varchar(50)",
     },
     descripcion: {
         allowNull: true,
@@ -38,7 +38,7 @@ const ProductoSchema = {
         field: "id_marca"
     },
     idImagen: {
-        allowNull: false,
+        allowNull: true,
         type: DataTypes.INTEGER,
         field: "id_imagen"
     },
@@ -46,8 +46,13 @@ const ProductoSchema = {
 
 class Producto extends Model{
     
-    static associate(){
-
+    static associate(models){
+        this.hasMany(models.Marca,{
+            foreignKey: 'idMarca'
+        })
+        this.hasMany(models.Categoria,{
+            foreignKey: 'idCategoria'
+        })
     }
 
     static config(sequelize){

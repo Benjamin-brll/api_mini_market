@@ -26,6 +26,19 @@ const productosApi = (app) => {
             })
         }
     })
+
+    router.post('/', async(req, res, next) => {
+        try {
+            const producto = req.body
+
+            const nuevoProducto = await productoService.create(producto)
+        } catch (error) {
+            res.status(500).json({
+                data: error,
+                message: 'producto no creado'
+            })
+        }
+    })
 }
 
 module.exports = productosApi
