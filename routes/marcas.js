@@ -1,6 +1,6 @@
 const express = require('express')
 
-const MarcasService = require('../services/marcas.service')
+const MarcasService = require('../services/marca.service')
 
 const marcasApi = (app) => {
     

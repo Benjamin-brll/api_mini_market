@@ -1,6 +1,6 @@
 const express = require('express')
 
-const ImagenesService = require('../services/imagenes.service')
+const ImagenesService = require('../services/imagen.service')
 
 const imagenesApi = (app) => {
 
@@ -15,7 +15,7 @@ const imagenesApi = (app) => {
         try {
             const imagenes = await imagenesService.findAll()
 
-            res.status(200).jon({
+            res.status(200).json({
                 data: imagenes,
                 message: 'Imagenes presentadas',
             });

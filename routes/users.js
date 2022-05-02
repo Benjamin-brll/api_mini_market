@@ -1,17 +1,17 @@
 const express = require("express");
 
-const UserService = require("../services/user.service");
+const UsuarioService = require("../services/usuario.service");
 
 const usersApi = (app) => {
   const router = express.Router();
 
   app.use("/api/users", router);
 
-  const userService = new UserService();
+  const usuarioService = new UsuarioService();
 
   router.get("/", async (req, res, next) => {
     try {
-      const users = await userService.findAll();
+      const users = await usuarioService.findAll();
 
       res.status(200).json({
         data: users,

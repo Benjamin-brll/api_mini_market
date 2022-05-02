@@ -1,6 +1,6 @@
 const { models } = require("../libs/mssql");
 
-class metodoPagoService{
+class MetodoPagoService{
     constructor() {}
 
     async findAll(){
@@ -9,4 +9,4 @@ class metodoPagoService{
     }
 }
 
-module.exports = metodoPagoService;
+module.exports = MetodoPagoService;

@@ -1,6 +1,6 @@
 const { models } = require("../libs/mssql");
 
-class categoriasService {
+class CategoriaService {
     constructor() {
 
     }
@@ -11,4 +11,4 @@ class categoriasService {
     }
 }
 
-module.exports = categoriasService;
+module.exports = CategoriaService;

@@ -1,6 +1,6 @@
 const { models } = require("../libs/mssql");
 
-class UserService {
+class UsuarioService {
   constructor() {}
 
   async findAll() {
@@ -9,4 +9,4 @@ class UserService {
   }
 }
 
-module.exports = UserService;
+module.exports = UsuarioService;
