@@ -6,7 +6,8 @@ const RepartidorSchema = {
   idRepartidor: {
     allowNull: false,
     primaryKey: true,
-    type: "varchar(12)",
+    autoIncrement: true,
+    type: DataTypes.INTEGER,
     field: "id_repartidor",
   },
   nombre: {

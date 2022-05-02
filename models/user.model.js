@@ -6,7 +6,8 @@ const UserSchema = {
   idUsuario: {
     allowNull: false,
     primaryKey: true,
-    type: "varchar(12)",
+    autoIncrement: true,
+    type: DataTypes.INTEGER,
     field: "id_usuario",
   },
   nombre: {
