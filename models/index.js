@@ -1,23 +1,23 @@
-const { Product, ProductSchema } = require("./product.model");
-const { User, UserSchema } = require("./user.model");
-const { Ventas, VentasSchema } = require("./ventas.model");
+const { Producto, ProductoSchema } = require("./producto.model");
+const { Usuario, UsuarioSchema } = require("./usuario.model");
+const { Venta, VentaSchema } = require("./venta.model");
 const { Turno, TurnoSchema } = require("./turno.model");
-const { Repartidor, RepartidorSchema } = require("./repartidores.model");
-const { categorias, categoriasSchema } = require("./categorias.model");
-const { metodoPago, metodoPagoSchema } = require("./metodoPago.model");
-const { marcas, marcasSchema } = require("./marcas.model");
-const { imagenes, imagenesSchema } = require("./imagenes.model");
+const { Repartidor, RepartidorSchema } = require("./repartidor.model");
+const { Categoria, CategoriaSchema } = require("./categoria.model");
+const { MetodoPago, MetodoPagoSchema } = require("./metodoPago.model");
+const { Marca, MarcaSchema } = require("./marca.model");
+const { Imagen, ImagenSchema } = require("./imagen.model");
 
 function setupModels(sequelize) {
-  Product.init(ProductSchema, Product.config(sequelize));
-  User.init(UserSchema, User.config(sequelize));
-  Ventas.init(VentasSchema, Ventas.config(sequelize));
+  Producto.init(ProductoSchema, Producto.config(sequelize));
+  Usuario.init(UsuarioSchema, Usuario.config(sequelize));
+  Venta.init(VentaSchema, Venta.config(sequelize));
   Turno.init(TurnoSchema, Turno.config(sequelize));
   Repartidor.init(RepartidorSchema, Repartidor.config(sequelize));
-  categorias.init(categoriasSchema, categorias.config(sequelize));
-  metodoPago.init(metodoPagoSchema, metodoPago.config(sequelize));
-  marcas.init(marcasSchema, marcas.config(sequelize));
-  imagenes.init(imagenesSchema, imagenes.config(sequelize));
+  Categoria.init(CategoriaSchema, Categoria.config(sequelize));
+  MetodoPago.init(MetodoPagoSchema, MetodoPago.config(sequelize));
+  Marca.init(MarcaSchema, Marca.config(sequelize));
+  Imagen.init(ImagenSchema, Imagen.config(sequelize));
 }
 
 module.exports = setupModels;

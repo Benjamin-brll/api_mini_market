@@ -5,7 +5,7 @@ class marcasService {
     constructor() {}
 
     async findAll() {
-        const marcas = await models.marcas.findAll();
+        const marcas = await models.Marca.findAll();
         return marcas;
     }
 }

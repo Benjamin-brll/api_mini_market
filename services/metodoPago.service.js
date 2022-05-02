@@ -4,7 +4,7 @@ class metodoPagoService{
     constructor() {}
 
     async findAll(){
-        const metodoPago = await models.metodoPago.findAll();
+        const metodoPago = await models.MetodoPago.findAll();
         return metodoPago;
     }
 }

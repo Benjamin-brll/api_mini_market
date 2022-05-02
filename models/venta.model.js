@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require('sequelize')
 
-const VENTAS_TABLE = "ventas";
+const VENTA_TABLE = "ventas";
 
-const VentasSchema = {
+const VentaSchema = {
     idVenta: {
         allowNull: false,
         autoIncrement: true,
@@ -19,20 +19,23 @@ const VentasSchema = {
     },
     idUsuario: {
         allowNull: false,
+        field: 'id_usuario',
         type: DataTypes.INTEGER,
     },
     fechaRealiza: {
         allowNull: false,
         type: "datetime",
+        field: 'fecha_realiza',
         default: DataTypes.CURRENT_TIMESTAMP,
     },
     idMetodoPago: {
         allowNull: false,
+        field: 'id_metodo_pago',
         type: DataTypes.INTEGER,
     }
 }
 
-class Ventas extends Model {
+class Venta extends Model {
 
     static associate(){
 
@@ -41,12 +44,12 @@ class Ventas extends Model {
     static config(sequelize){
         return {
             sequelize,
-            tableName: VENTAS_TABLE,
-            modelName: "Ventas",
+            tableName: VENTA_TABLE,
+            modelName: "Venta",
             timestamps: false
         }
 
     }
 }
 
-module.exports = { VENTAS_TABLE, VentasSchema, Ventas }
+module.exports = { VENTA_TABLE, VentaSchema, Venta }

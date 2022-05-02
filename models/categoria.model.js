@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 
-const CATEGORIAS_TABLE = "categorias";
+const CATEGORIA_TABLE = "categorias";
 
-const categoriasSchema = {
+const CategoriaSchema = {
     idCategoria: {
-        allowNull: false,
         primaryKey: true,
-        type: "varchar(15)",
+        allowNull: false,
         field: "id_categoria",
+        type: DataTypes.INTEGER,
     },
     nombre: {
         allowNull: false,
@@ -19,7 +19,7 @@ const categoriasSchema = {
     }
 }
 
-class categorias extends Model {
+class Categoria extends Model {
     
     static associate(){
 
@@ -28,11 +28,11 @@ class categorias extends Model {
     static config(sequelize) {
         return {
             sequelize,
-            tableName: CATEGORIAS_TABLE,
-            modelName: "categorias",
+            tableName: CATEGORIA_TABLE,
+            modelName: "Categoria",
             timestamps: false,
         }
     }
 }
 
-module.exports = {CATEGORIAS_TABLE, categoriasSchema, categorias}
+module.exports = {CATEGORIA_TABLE, CategoriaSchema, Categoria}

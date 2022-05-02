@@ -6,7 +6,7 @@ class categoriasService {
     }
 
     async findAll() {
-        const categorias = await models.categorias.findAll();
+        const categorias = await models.Categoria.findAll();
         return categorias;
     }
 }

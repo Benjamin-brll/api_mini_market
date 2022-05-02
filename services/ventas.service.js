@@ -7,7 +7,7 @@ class VentaService {
     }
 
     async findAll() {
-        const ventas = await models.Ventas.findAll()
+        const ventas = await models.Venta.findAll()
         return ventas
     }
 }

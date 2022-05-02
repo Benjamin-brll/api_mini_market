@@ -1,14 +1,15 @@
 const { Model, DataTypes } = require('sequelize')
 
-const PRODUCT_TABLE = 'productos';
+const PRODUCTOS_TABLE = 'productos';
 
-const ProductSchema = {
+const ProductoSchema = {
     
     idProducto: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        field: "id_producto"
     },
     nombre: {
         allowNull: false,
@@ -28,19 +29,22 @@ const ProductSchema = {
     },
     idCategoria: {
         allowNull: false,
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        field: "id_categoria"
     },
     idMarca: {
         allowNull: false,
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        field: "id_marca"
     },
     idImagen: {
         allowNull: false,
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        field: "id_imagen"
     },
 }
 
-class Product extends Model{
+class Producto extends Model{
     
     static associate(){
 
@@ -49,11 +53,11 @@ class Product extends Model{
     static config(sequelize){
         return {
             sequelize,
-            tableName: PRODUCT_TABLE,
-            modelName: 'Product',
+            tableName: PRODUCTOS_TABLE,
+            modelName: 'Producto',
             timestamps: false
         }
     }
 }
 
-module.exports = { PRODUCT_TABLE, ProductSchema, Product}
+module.exports = { PRODUCTOS_TABLE, ProductoSchema, Producto}

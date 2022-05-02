@@ -4,7 +4,7 @@ class ProductService {
   constructor() {}
 
   async findAll() {
-    const products = await models.Product.findAll();
+    const products = await models.Producto.findAll();
     return products;
   }
 }

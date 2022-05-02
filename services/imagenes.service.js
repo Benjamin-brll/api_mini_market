@@ -5,7 +5,7 @@ class imagenesService {
     constructor(){}
 
     async findAll() {
-        const imagenes = await models.imagenes.findAll();
+        const imagenes = await models.Imagen.findAll();
         return imagenes;
     }
 }

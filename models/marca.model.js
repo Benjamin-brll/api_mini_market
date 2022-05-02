@@ -1,13 +1,13 @@
-const { Model, DataType } = require('sequelize')
+const { Model, DataTypes } = require('sequelize')
 
-const MARCAS_TABLE = 'marcas';
+const MARCA_TABLE = 'marcas';
 
-const marcasSchema = {
+const MarcaSchema = {
     idMarca: {
-        allowNull: false,
         primaryKey: true,
-        type: "varchar(12)",
-        field: "id_marcas",
+        allowNull: false,
+        field: "id_marca",
+        type: DataTypes.INTEGER,
     },
     nombre: {
         allowNull: false,
@@ -19,18 +19,18 @@ const marcasSchema = {
     }
 }
 
-class marcas extends Model {
+class Marca extends Model {
 
     static associate() {}
 
     static config(sequelize) {
         return {
             sequelize,
-            tableName: MARCAS_TABLE,
-            modelName: 'marcas',
+            tableName: MARCA_TABLE,
+            modelName: 'Marca',
             timestamps: false,
         };
     }
 }
 
-module.exports = {MARCAS_TABLE, marcasSchema, marcas};
+module.exports = {MARCA_TABLE, MarcaSchema, Marca};

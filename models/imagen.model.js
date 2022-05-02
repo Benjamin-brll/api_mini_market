@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 
-const IMAGENES_TABLE = "imagenes";
+const IMAGEN_TABLE = "imagenes";
 
-const imagenesSchema = {
+const ImagenSchema = {
     idImagen: {
-        allowNull: false,
         primaryKey: true,
-        type: "varchar(12)",
-        field: "id_imagenes",
+        allowNull: false,
+        field: "id_imagen",
+        type: DataTypes.INTEGER,
     },
     nombre: {
         allowNull: false,
@@ -17,28 +17,29 @@ const imagenesSchema = {
         allowNull: false,
         type: "char(4)",
     },
-    tamaño: {
+    tamano: {
         allowNull: false,
         type: "varchar(20)",
     },
-    nombreTamaño: {
+    nombreTamano: {
         allowNull: false,
+        field: 'nombre_tamano',
         type: "char(5)",
     }
 }
 
-class imagenes extends Model {
+class Imagen extends Model {
 
     static associate(){}
     
     static config(sequelize) {
         return {
             sequelize,
-            tableName: IMAGENES_TABLE,
-            modelName: "imagenes",
+            tableName: IMAGEN_TABLE,
+            modelName: "Imagen",
             timestamps: false,
         }
     }
 }
 
-module.exports = {IMAGENES_TABLE, imagenesSchema, imagenes}
+module.exports = {IMAGEN_TABLE, ImagenSchema, Imagen}
