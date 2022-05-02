@@ -1,19 +1,19 @@
 const express = require('express')
 
-const VentasService = require('../services/venta.service')
+const VentaService = require('../services/venta.service')
 
 const ventasApi = (app) => {
 
     const router = express.Router()
 
-    const ventasService = new VentasService()
+    const ventaService = new VentaService()
 
     app.use('/api/ventas', router)
 
     router.get('/', async (req, res, next) => {
 
         try {
-            const ventas = await ventasService.findAll()
+            const ventas = await ventaService.findAll()
             
             res.status(200).json({'data': ventas, 'message': 'ventas listadas'})
         } catch (error) {

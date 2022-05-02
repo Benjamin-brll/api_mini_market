@@ -1,22 +1,22 @@
 const express = require('express')
 
-const ProductService = require('../services/producto.service')
+const ProductoService = require('../services/producto.service')
 
-const productsApi = (app) => {
+const productosApi = (app) => {
 
     const router = express.Router()
 
-    app.use('/api/products', router)
+    app.use('/api/productos', router)
 
-    const productService = new ProductService()
+    const productoService = new ProductoService()
 
     router.get('/', async(req, res, next) => {
         
         try {
-            const products = await productService.findAll()
+            const productos = await productoService.findAll()
             
             res.status(200).json({
-                data: products,
+                data: productos,
                 message: 'productos listados'
             })
         } catch (error) { 
@@ -28,4 +28,4 @@ const productsApi = (app) => {
     })
 }
 
-module.exports = productsApi
+module.exports = productosApi

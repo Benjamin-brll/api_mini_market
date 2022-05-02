@@ -1,6 +1,6 @@
 const express = require('express')
 
-const MarcasService = require('../services/marca.service')
+const MarcaService = require('../services/marca.service')
 
 const marcasApi = (app) => {
     
@@ -8,12 +8,12 @@ const marcasApi = (app) => {
 
     app.use('/api/marcas', router)
 
-    const marcasService = new MarcasService()
+    const marcaService = new MarcaService()
 
     router.get('/', async (req, res, next) => {
 
         try{
-            const marcas = await marcasService.findAll()
+            const marcas = await marcaService.findAll()
 
             res.status(200).json({
                 data: marcas,
