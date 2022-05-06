@@ -1,4 +1,4 @@
-const { models } = require("../libs/mssql");
+const { models } = require("../libs/mysql");
 
 class UsuarioService {
   constructor() {}
