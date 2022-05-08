@@ -1,12 +1,12 @@
-const { models } = require("../libs/mssql");
+const { models } = require("../libs/mysql");
 
-class metodoPagoService{
+class MetodoPagoService{
     constructor() {}
 
     async findAll(){
-        const metodoPago = await models.metodoPago.findAll();
+        const metodoPago = await models.MetodoPago.findAll();
         return metodoPago;
     }
 }
 
-module.exports = metodoPagoService;
+module.exports = MetodoPagoService;

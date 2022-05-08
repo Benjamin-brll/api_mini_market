@@ -6,7 +6,7 @@ const metodoPagoApi = (app) => {
     
     const router = express.Router()
 
-    app.use('/api/metodoPago', router)
+    app.use('/api/metodo-pago', router)
 
     const metodoPagoService = new MetodoPagoService();
 

@@ -19,7 +19,7 @@ const TurnoSchema = {
     type: DataTypes.TIME,
     field: "horario_inicio",
   },
-  FinHorario: {
+  HorarioFin: {
     allowNull: false,
     type: DataTypes.TIME,
     field: "horario_fin",

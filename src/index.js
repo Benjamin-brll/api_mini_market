@@ -3,8 +3,8 @@ const app = express();
 
 const { config } = require("../config/index");
 
-const productsApi = require("../routes/products");
-const usersApi = require("../routes/users");
+const productosApi = require("../routes/productos");
+const usuariosApi = require("../routes/usuarios");
 const ventasApi = require("../routes/ventas");
 const turnosApi = require("../routes/turnos");
 const repartidoresApi = require("../routes/repartidores");
@@ -16,8 +16,8 @@ const proveedoresApi = require("../routes/proveedores");
 
 app.use(express.json());
 
-productsApi(app);
-usersApi(app);
+productosApi(app);
+usuariosApi(app);
 ventasApi(app);
 turnosApi(app);
 repartidoresApi(app);

@@ -1,20 +1,20 @@
 const express = require("express");
 
-const UserService = require("../services/user.service");
+const UsuarioService = require("../services/usuario.service");
 
-const usersApi = (app) => {
+const usuariosApi = (app) => {
   const router = express.Router();
 
-  app.use("/api/users", router);
+  app.use("/api/usuarios", router);
 
-  const userService = new UserService();
+  const usuarioService = new UsuarioService();
 
   router.get("/", async (req, res, next) => {
     try {
-      const users = await userService.findAll();
+      const usuarios = await usuarioService.findAll();
 
       res.status(200).json({
-        data: users,
+        data: usuarios,
         message: "Usuarios listados",
       });
     } catch (error) {
@@ -26,4 +26,4 @@ const usersApi = (app) => {
   });
 };
 
-module.exports = usersApi;
+module.exports = usuariosApi;

@@ -1,38 +1,36 @@
-const { Model, DataTypes} = require('sequelize')
+const { Model, DataTypes } = require('sequelize')
 
-const METODOPAGO_TABLE = 'metodoPago';
+const METODO_PAGO_TABLE = 'metodos_pago';
 
-const metodoPagoSchema = {
+const MetodoPagoSchema = {
     idMetodoPago: {
-        allowNull: false,
         primaryKey: true,
-        field: "id_metodoPago",
-        type: "varchar(12)",
+        allowNull: false,
+        field: "id_metodo_pago",
+        type: DataTypes.INTEGER,
     },
-
     nombre: {
         allowNull: false,
         type: "varchar(20)",
     },
-
     estado: {
         allowNull: false,
         type: "char(32)",
     }
 }
 
-class metodoPago extends Model {
+class MetodoPago extends Model {
 
     static associate() {}
     
     static config(sequelize) {
         return {
             sequelize,
-            tableName: METODOPAGO_TABLE,
-            modelName: "metodoPago",
+            tableName: METODO_PAGO_TABLE,
+            modelName: "MetodoPago",
             timestamps: false
         }
     }
 }
 
-module.exports = {METODOPAGO_TABLE, metodoPagoSchema, metodoPago}
+module.exports = {METODO_PAGO_TABLE, MetodoPagoSchema, MetodoPago}

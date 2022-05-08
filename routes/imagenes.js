@@ -1,6 +1,6 @@
 const express = require('express')
 
-const ImagenesService = require('../services/imagenes.service')
+const ImagenService = require('../services/imagen.service')
 
 const imagenesApi = (app) => {
 
@@ -8,14 +8,14 @@ const imagenesApi = (app) => {
 
     app.use("/api/imagenes", router)
 
-    const imagenesService = new ImagenesService();
+    const imagenService = new ImagenService();
 
     router .get('/', async (req, res, next) => {
 
         try {
-            const imagenes = await imagenesService.findAll()
+            const imagenes = await imagenService.findAll()
 
-            res.status(200).jon({
+            res.status(200).json({
                 data: imagenes,
                 message: 'Imagenes presentadas',
             });

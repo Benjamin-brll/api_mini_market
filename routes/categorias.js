@@ -1,6 +1,6 @@
 const express = require('express')
 
-const CategoriasService = require('../services/categorias.service')
+const CategoriaService = require('../services/categoria.service')
 
 const categoriasApi = (app) => {
     
@@ -8,12 +8,12 @@ const categoriasApi = (app) => {
 
     app.use("/api/categorias", router)
 
-    const categoriasService = new CategoriasService();
+    const categoriaService = new CategoriaService();
 
     router .get('/', async (req, res, next) => {
 
         try {
-            const categorias = await categoriasService.findAll()
+            const categorias = await categoriaService.findAll()
 
             res.status(200).json({
                 data: categorias,
