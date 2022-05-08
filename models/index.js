@@ -7,6 +7,7 @@ const { categorias, categoriasSchema } = require("./categorias.model");
 const { metodoPago, metodoPagoSchema } = require("./metodoPago.model");
 const { marcas, marcasSchema } = require("./marcas.model");
 const { imagenes, imagenesSchema } = require("./imagenes.model");
+const { Proveedor, ProveedorSchema } = require("./proveedor.model");
 
 function setupModels(sequelize) {
   Product.init(ProductSchema, Product.config(sequelize));
@@ -18,6 +19,7 @@ function setupModels(sequelize) {
   metodoPago.init(metodoPagoSchema, metodoPago.config(sequelize));
   marcas.init(marcasSchema, marcas.config(sequelize));
   imagenes.init(imagenesSchema, imagenes.config(sequelize));
+  Proveedor.init(ProveedorSchema, Proveedor.config(sequelize));
 }
 
 module.exports = setupModels;

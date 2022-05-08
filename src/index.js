@@ -12,6 +12,7 @@ const categoriasApi = require("../routes/categorias");
 const metodoPagoApi = require("../routes/metodoPago");
 const marcasApi = require("../routes/marcas");
 const imagenesApi = require("../routes/imagenes");
+const proveedoresApi = require("../routes/proveedores");
 
 app.use(express.json());
 
@@ -24,6 +25,7 @@ categoriasApi(app);
 metodoPagoApi(app);
 marcasApi(app);
 imagenesApi(app);
+proveedoresApi(app);
 
 app.listen(config.port, () => {
   console.log(`app running on port http://localhost:${config.port}/`);
