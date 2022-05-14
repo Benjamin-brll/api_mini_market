@@ -13,15 +13,9 @@ const productosApi = (app) => {
     try {
       const productos = await productoService.findAll();
 
-      res.status(200).json(
-        productos.map((msg) => {
-          return {
-            nombre: msg.nombre,
-            descripcion: msg.descripcion,
-            precio: msg.precio,
-          };
-        })
-      );
+      res.status(200).json({
+        data: productos
+      });
       //   res.status(200).json({
       //     data: productos,
       //   });
