@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt')
 const { Model, DataTypes } = require("sequelize");
 
 const USUARIO_TABLE = "usuarios";
@@ -21,6 +22,9 @@ const UsuarioSchema = {
   contrasena: {
     allowNull: true,
     type: "varchar(70)",
+    async set(value){
+      this.setDataValue('contrasena', bcrypt.hashSync(value,10))
+    }
   },
   apellidoPaterno: {
     allowNull: true,

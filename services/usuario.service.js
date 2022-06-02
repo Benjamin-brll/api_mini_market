@@ -3,9 +3,15 @@ const { models } = require("../libs/mysql");
 class UsuarioService {
   constructor() {}
 
-  async findAll() {
-    const users = await models.Usuario.findAll();
-    return users;
+  async findByEmail(correo) {
+    const user = await models.Usuario.findOne({ where: { correo: correo }});
+    return user.get();
+  }
+
+  async create(usuario){
+    const { idUsuario } = await models.Usuario.create(usuario);
+
+    return idUsuario
   }
 }
 
