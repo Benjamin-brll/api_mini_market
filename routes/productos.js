@@ -16,9 +16,7 @@ const productosApi = (app) => {
       res.status(200).json({
         data: productos
       });
-      //   res.status(200).json({
-      //     data: productos,
-      //   });
+      
     } catch (error) {
       res.status(500).json({
         data: error,

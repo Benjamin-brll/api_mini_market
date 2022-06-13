@@ -28,7 +28,7 @@ const usuariosApi = (app) => {
       }else{
         res.status(200).json({
           data: {
-            estaAutenticado,
+            "estaAutenticado": true,
             "usuario": usuario,
             "message": "Autenticado con exito"
           }
@@ -37,7 +37,7 @@ const usuariosApi = (app) => {
     } catch (error) {
       res.status(401).json({
         data: {
-          estaAutenticado: false,
+          "estaAutenticado": false,
           "usuario": null,
           "message": "Correo o contraseña incorrecta"
         }
