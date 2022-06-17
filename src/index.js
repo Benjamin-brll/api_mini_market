@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path')
 const app = express();
 
 const { config } = require("../config/index");
@@ -14,6 +15,7 @@ const marcasApi = require("../routes/marcas");
 const imagenesApi = require("../routes/imagenes");
 const proveedoresApi = require("../routes/proveedores");
 
+app.use(express.static(path.join(__dirname, '../public')))
 app.use(express.json());
 
 productosApi(app);

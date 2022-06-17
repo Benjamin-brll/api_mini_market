@@ -53,6 +53,9 @@ class Producto extends Model{
         this.belongsTo(models.Categoria,{
             foreignKey: 'idCategoria'
         })
+        this.hasOne(models.Imagen,{
+            foreignKey: 'idImagen'
+        })
     }
 
     static config(sequelize){
