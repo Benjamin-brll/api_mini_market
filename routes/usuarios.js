@@ -1,6 +1,10 @@
 const express = require("express");
 const UsuarioService = require("../services/usuario.service");
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const passport = require("passport");
+const jwt = require('jsonwebtoken')
+
+const { config } = require('../config/index')
 
 const usuariosApi = (app) => {
   const router = express.Router();
@@ -8,43 +12,33 @@ const usuariosApi = (app) => {
   app.use("/api/usuarios", router);
   const usuarioService = new UsuarioService();
 
-  router.post("/sign-in", async function (req, res, next) {
-    console.log(req.body)
-    
-    let { correo, contrasena } = req.body
+  router.post("/sign-in",
+    passport.authenticate('local', { session: false }),
+    async function (req, res, next) {
+      try {
 
-    const usuarioService = new UsuarioService();
+        const user = req.user
 
-    try {
-      let usuario = await usuarioService.findByEmail(correo)
-  
-      let estaAutenticado = bcrypt.compareSync(contrasena, usuario.contrasena)
-  
-      delete usuario.contrasena
-  
-      console.log(estaAutenticado)
-      if(!estaAutenticado){
-        throw new Error()
-      }else{
-        res.status(200).json({
-          data: {
-            "estaAutenticado": true,
-            "usuario": usuario,
-            "message": "Autenticado con exito"
-          }
+        const payload = {
+          sub: user.idUsuario,
+          role: user.isAdmin ? 'admin' : 'customer',
+        }
+
+        const token = jwt.sign(payload, config.jwtSecret)
+
+        res.json({
+          user,
+          token
+        })
+
+      } catch (error) {
+        res.status(401).json({
+          error
         })
       }
-    } catch (error) {
-      res.status(401).json({
-        data: {
-          "estaAutenticado": false,
-          "usuario": null,
-          "message": "Correo o contraseña incorrecta"
-        }
-      })
-    }
 
-  });
+    }
+  );
 
   router.post('/', async (req, res, next) => {
     try {
