@@ -14,20 +14,21 @@ const LocalStrategy = new Strategy({
         try {
 
             const user = await usuarioService.findByEmail(email)
+            const userData = user.get()
 
-            if (!user) {
+            if (!userData) {
                 done(boom.unauthorized(), false)
             }
 
-            const isMatch = await bcrypt.compare(password, user.contrasena)
+            const isMatch = await bcrypt.compare(password, userData.contrasena)
 
             if (!isMatch) {
                 done(boom.unauthorized(), false)
             }
 
-            delete user.contrasena
+            delete userData.contrasena
 
-            return done(null, user)
+            return done(null, userData)
 
         } catch (error) {
             done(error, false)

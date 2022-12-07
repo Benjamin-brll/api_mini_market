@@ -5,7 +5,8 @@ class UsuarioService {
 
   async findByEmail(correo) {
     const user = await models.Usuario.findOne({ where: { correo: correo }});
-    return user.get();
+    
+    return user;
   }
 
   async create(usuario){
