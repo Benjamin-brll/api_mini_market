@@ -17,7 +17,8 @@ const productosApi = (app) => {
         const productos = await productoService.findAll();
 
         res.status(200).json({
-          data: productos
+          data: productos,
+          message: 'productos listados'
         });
 
       } catch (error) {

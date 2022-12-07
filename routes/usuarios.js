@@ -45,14 +45,28 @@ const usuariosApi = (app) => {
 
       const { body } = req
 
-      const idUsuario = await usuarioService.create(body);
+      const user = await usuarioService.findByEmail(body.correo);
 
-      res.status(201).json({
+      if(!user){
+        const idUsuario = await usuarioService.create(body);
+
+        return res.status(201).json({
+          data: {
+            estaRegistrado: true,
+            message: 'Usuario creado con exito!'
+          }
+        })
+      }
+
+      delete user.contrasena
+
+      return res.status(302).json({
         data: {
-          estaRegistrado: true,
-          message: 'Usuario creado con exito!'
+          estaRegistrado: false,
+          message: 'El usuario ya se encuentra registrado!'
         }
       })
+      
     } catch (error) {
       res.status(500).json({
         data: {

@@ -17,7 +17,7 @@ const categoriasApi = (app) => {
 
             res.status(200).json({
                 data: categorias,
-                message: 'Categorias existentes',
+                message: 'categorias listadas',
             });
         }   catch (error) {
             res.status(500).json({
